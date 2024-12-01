@@ -18,4 +18,4 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"key": "value"}')
           echo "API Response:"
-          echo "$response"
+          echo "$response hello test" 
