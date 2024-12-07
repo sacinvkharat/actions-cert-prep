@@ -27,4 +27,4 @@ jobs:
           echo "$response hello test" 
           echo "$super_secret1  value of super_secret"
           echo "$env.super_secret  value of super_secret"
-          echo "Using the secret: ${{ secrets.ENV_SECRET }}"
+          echo "Using the secret: ${{ secrets.TEST_SECRET }}"
