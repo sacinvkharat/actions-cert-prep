@@ -1,4 +1,4 @@
-name: Call REST API Daily
+vname: Call REST API Daily
 
 on:
   schedule:
@@ -26,4 +26,4 @@ jobs:
           echo "API Response:"
           echo "$response hello test" 
           echo $super_secret1 + " value of super_secret"
-           echo $super_secret + " value of super_secret"
+           echo $env.super_secret + " value of super_secret"
