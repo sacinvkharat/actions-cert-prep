@@ -1,4 +1,4 @@
-vname: Call REST API Daily
+name: Call REST API Daily
 
 on:
   schedule:
