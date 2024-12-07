@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-        with: # Set the secret as an input
+        with: 
           super_secret1: ${{ secrets.TEST_SECRET }}
-        env: # Or as an environment variable
+        env: 
           super_secret: ${{ secrets.ENV_SECRET }}
      
       - name: Call REST API
@@ -26,4 +26,5 @@ jobs:
           echo "API Response:"
           echo "$response hello test" 
           echo "$super_secret1  value of super_secret"
-           echo "$env.super_secret  value of super_secret"
+          echo "$env.super_secret  value of super_secret"
+          echo "Using the secret: ${{ secrets.ENV_SECRET }}"
