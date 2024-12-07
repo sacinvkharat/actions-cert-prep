@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: test secret
+      
         with: # Set the secret as an input
           super_secret: ${{ secrets.SuperSecret }}
         env: # Or as an environment variable
