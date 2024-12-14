@@ -17,7 +17,7 @@ jobs:
       - id: step2 
         run: echo "test=world" >> $GITHUB_OUTPUT
   call-api:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: job1
     steps:
       - uses: actions/checkout@v3 
@@ -33,7 +33,7 @@ jobs:
             -H "Content-Type: application/json" \
             -d '{"key": "value"}')
           curl https://dummyjson.com/users/1 > response1.json  
-          value=$(grep -o '"password":"[^"]*' response1.json | cut -d '"' -f 4)
+          value=$(grep -o '"crypto":"[^"]*' response1.json | cut -d '"' -f 4)
           echo "Extracted value: $value"    
           echo "API Response:"
           echo "$response hello test" 
