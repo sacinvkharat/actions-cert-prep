@@ -30,7 +30,8 @@ jobs:
       - name: Call REST API
         run: |
 
-          curl "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new" > num  
+          num=$(curl "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new")
+          echo "Extracted num: $num"  
           curl "https://dummyjson.com/users/"+$num > response1.json  
           value=$(grep -o '"state":"[^"]*' response1.json | cut -d '"' -f 4)
           echo "Extracted value: $value"    
