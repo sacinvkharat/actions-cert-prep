@@ -29,12 +29,14 @@ jobs:
           #OUTPUT2: ${{ needs.job1.outputs.output2 }}   
       - name: Call REST API
         run: |
-          response=$(curl -X GET https://dummyjson.com/users \
-            -H "Content-Type: application/json" \
-            -d '{"key": "value"}')
-          curl https://dummyjson.com/users/1 > response1.json  
+
+          curl "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new" > num  
+          curl https://dummyjson.com/users/$num > response1.json  
           value=$(grep -o '"state":"[^"]*' response1.json | cut -d '"' -f 4)
           echo "Extracted value: $value"    
+          response=$(curl -X GET https://dummyjson.com/users \
+            -H "Content-Type: application/json" \
+            -d '{"key": "value"}')      
           echo "API Response:"
           echo "$response hello test" 
           echo "$super_secret1  value of super_secret"
