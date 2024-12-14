@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 jobs:
   job1: 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     outputs: 
       output1: ${{ steps.step1.outputs.test }} 
       output2: ${{ steps.step2.outputs.test }} 
@@ -17,7 +17,7 @@ jobs:
       - id: step2 
         run: echo "test=world" >> $GITHUB_OUTPUT
   call-api:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: job1
     steps:
       - uses: actions/checkout@v3 
