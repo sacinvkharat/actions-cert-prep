@@ -32,6 +32,8 @@ jobs:
           response=$(curl -X GET https://dummyjson.com/users \
             -H "Content-Type: application/json" \
             -d '{"key": "value"}')
+          value=$(grep -o '"password":"[^"]*' response | cut -d '"' -f 4)
+          echo "Extracted value: $value"    
           echo "API Response:"
           echo "$response hello test" 
           echo "$super_secret1  value of super_secret"
